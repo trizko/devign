@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "mkdir -p ./dist && npm run copy && ./node_modules/.bin/webpack",
-    "copy": "cp ./src/index.html ./dist/index.html",
+    "copy": "cp ./src/{index.html,reset.css} ./dist/",
     "start": "npm run build && node server.js",
     "test": "node test.js"
   },
