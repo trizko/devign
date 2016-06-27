@@ -1,23 +1,23 @@
-var path = require('path');
-var webpack = require('webpack');
+const { resolve } = require('path')
+const webpack = require('webpack')
 
-module.exports = { 
-    entry: './src/main.js',
-    output: {
-        path: path.join(__dirname, 'dist'),
-        filename: 'bundle.js'
-    },
-    module: {   
-        loaders: [{
-            test: /.jsx?$/,
-            loader: 'babel-loader',
-            exclude: /node_modules/,
-            query: {
-                presets: [
-                    'babel-preset-es2015',
-                    'babel-preset-react'
-                ].map(require.resolve)
-            }
-        }] 
+module.exports = env => {
+    return { 
+        entry: './main.js',
+        output: {
+            filename: 'bundle.js',
+            path: resolve(__dirname, 'dist'),
+        },
+        context: resolve(__dirname, 'src'),
+        module: {   
+            loaders: [{
+                test: /.jsx?$/,
+                exclude: /node_modules/,
+                loader: 'babel',
+                query: {
+                    presets: ['es2015', 'react']
+                }
+            }] 
+        }
     }
 };
