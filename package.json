@@ -4,8 +4,13 @@
   "description": "Help developers and designers play nice together",
   "main": "index.js",
   "scripts": {
-    "build": "mkdir -p ./dist && npm run copy && ./node_modules/.bin/webpack",
-    "copy": "cp ./src/{index.html,reset.css} ./dist/",
+    "prebuild": "npm run clean-and-copy",
+    "prebuild:prod": "npm run clean-and-copy",
+    "build": "./node_modules/.bin/webpack",
+    "build:prod": "./node_modules/.bin/webpack -p",
+    "clean": "./node_modules/.bin/rimraf ./dist",
+    "copy": "./node_modules/.bin/cpy ./src/{index.html,reset.css} ./dist/",
+    "clean-and-copy": "npm run clean && npm run copy",
     "start": "npm run build && node server.js",
     "test": "node test.js"
   },
@@ -29,7 +34,9 @@
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.5.0",
+    "cpy-cli": "^1.0.1",
     "express": "^4.14.0",
+    "rimraf": "^2.5.2",
     "webpack": "^2.1.0-beta.14"
   }
 }
