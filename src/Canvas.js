@@ -1,7 +1,7 @@
 import React from 'react';
 
 var CanvasStyle = {
-    flex: '5',
+    flex: '3',
     cursor: 'crosshair',
     backgroundImage: 'url("/canvas.png")'
 }
