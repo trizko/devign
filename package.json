@@ -11,7 +11,7 @@
     "clean": "./node_modules/.bin/rimraf ./dist",
     "copy": "./node_modules/.bin/cpy ./assets/{index.html,reset.css,canvas.png} ./dist/",
     "clean-and-copy": "npm run clean && npm run copy",
-    "start": "npm run build && node server.js",
+    "start": "node server.js",
     "test": "node test.js"
   },
   "repository": {
